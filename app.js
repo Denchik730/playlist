@@ -15,11 +15,13 @@ const server = http.createServer((req, res) => {
       return;
     }
 
+    const songs = JSON.parse(data);
+
     res.writeHead(200, {
       "Content-Type": "text/html",
     });
 
-    const markup = generateMainView([]);
+    const markup = generateMainView(songs);
 
     res.end(markup);
   });
